@@ -2,6 +2,7 @@ package com.cafepos.domain;
 
 import com.cafepos.common.Money;
 import java.util.*;
+import com.cafepos.payment.PaymentStrategy;
 
 public final class Order {
     private final long id;
@@ -32,5 +33,9 @@ public final class Order {
 
     public Money totalWithTax(int percent) {
         return subtotal().add(taxAtPercent(percent));
+    }
+    public void pay(PaymentStrategy strategy) {
+        if (strategy == null) throw new IllegalArgumentException("strategy required");
+        strategy.pay(this);
     }
 }
