@@ -12,7 +12,7 @@ public final class Week3Demo {
         catalog.add(new SimpleProduct("P-ESP", "Espresso", Money.of(2.50)));
         catalog.add(new SimpleProduct("P-CCK", "Chocolate Cookie", Money.of(3.50)));
 
-        // Cash
+
         Order order1 = new Order(OrderIds.next());
         order1.addItem(new LineItem(catalog.findById("P-ESP").orElseThrow(), 2));
         order1.addItem(new LineItem(catalog.findById("P-CCK").orElseThrow(), 1));

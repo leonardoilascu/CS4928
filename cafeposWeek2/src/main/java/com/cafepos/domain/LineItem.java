@@ -15,10 +15,18 @@ public final class LineItem {
         this.quantity = quantity;
     }
 
-    public Product product() { return product; }
-    public int quantity() { return quantity; }
+    public Product product() {
+        return product;
+    }
+
+    public int quantity() {
+        return quantity;
+    }
 
     public Money lineTotal() {
-        return product.basePrice().multiply(BigDecimal.valueOf(quantity));
+        Money unit = (product instanceof com.cafepos.catalog.Priced p)
+                ? p.price()
+                : product.basePrice();
+        return unit.multiply(BigDecimal.valueOf(quantity));
     }
 }
