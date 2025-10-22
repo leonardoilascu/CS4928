@@ -66,6 +66,16 @@ public final class Money implements Comparable<Money> {
         return Objects.hash(amount);
     }
 
+    public BigDecimal asBigDecimal() {
+        return amount;
+    }
+
+    public static Money of(BigDecimal value) {
+        if (value == null) throw new IllegalArgumentException("amount required");
+        return new Money(value);
+    }
+
+
     // toString for debugging
     @Override
     public String toString() {

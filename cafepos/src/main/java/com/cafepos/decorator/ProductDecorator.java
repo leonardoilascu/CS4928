@@ -1,9 +1,10 @@
 package com.cafepos.decorator;
 
+import com.cafepos.catalog.Priced;
 import com.cafepos.domain.Product;
 import com.cafepos.common.Money;
 
-public abstract class ProductDecorator implements Product {
+public abstract class ProductDecorator implements Product, Priced {
     protected final Product base;
 
     protected ProductDecorator(Product base) {
@@ -18,4 +19,11 @@ public abstract class ProductDecorator implements Product {
     public Money basePrice() { // original price
         return base.basePrice();
     }
+
+    @Override
+    public Money price() {
+        if (base instanceof Priced p) return p.price();
+        return base.basePrice();
+    }
 }
+

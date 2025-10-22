@@ -4,6 +4,8 @@ import com.cafepos.common.Money;
 import com.cafepos.factory.ProductFactory;
 import com.cafepos.domain.Product;
 
+import java.math.BigDecimal;
+
 public class OrderManagerGod {
     public static int TAX_PERCENT = 10; // Global/Static State
     public static String LAST_DISCOUNT_CODE = null; // Global/Static State
@@ -16,22 +18,21 @@ public class OrderManagerGod {
 
         Money unitPrice;
         try {
-            var priced = product instanceof com.cafepos.catalog.Priced  
-            p ? p.price() : product.basePrice();
+            var priced = product instanceof com.cafepos.catalog.Priced
+                    p ? p.price() : product.basePrice();
             unitPrice = priced;
         } catch (Exception e) {
             unitPrice = product.basePrice();
         }
 
         if (qty <= 0) qty = 1;
-        Money subtotal = unitPrice.multiply(qty); // Primitive Obsession: using int for qty
+        Money subtotal = unitPrice.multiply(BigDecimal.valueOf(qty));// Primitive Obsession: using int for qty
 
         Money discount = Money.zero();
         if (discountCode != null) { // Duplicated Logic
             if (discountCode.equalsIgnoreCase("LOYAL5")) {
-                discount = Money.of(subtotal.asBigDecimal() 
-                .multiply(java.math.BigDecimal.valueOf(5))
-                .divide(java.math.BigDecimal.valueof(100)));
+                discount = Money.of(subtotal.asBigDecimal()
+                        .multiply(java.math.BigDecimal.valueOf(5)).divide(java.math.BigDecimal.valueOf(100)));
             } else if (discountCode.equalsIgnoreCase("COUPON1")) {
                 discount = Money.of(1.00);
             } else if (discountCode.equalsIgnoreCase("NONE")) {
@@ -41,20 +42,18 @@ public class OrderManagerGod {
             }
             LAST_DISCOUNT_CODE = discountCode;
         }
-        
-        Money discounted = Money.of(subtotal.asBigDecimal().subtract(discount.asBigDecimal())); 
+
+        Money discounted = Money.of(subtotal.asBigDecimal().subtract(discount.asBigDecimal()));
         // Duplicate Logic: casting types over and over again
         if (discounted.asBigDecimal().signum() < 0) {
             discounted = Money.zero();
-            
-            // Shotgun Surgery: Calculating tax inline
-            var tax = Money.of(discounted.asBigDecimal()
-            .multiply(java.math.BigDecimal.valueOf(TAX_PERCENT))
-            .divide(java.math.BigDecimal.valueOf(100)));
+        }
+        // Shotgun Surgery: Calculating tax inline
+        var tax = Money.of(discounted.asBigDecimal().multiply(java.math.BigDecimal.valueOf(TAX_PERCENT)).divide(java.math.BigDecimal.valueOf(100)));
 
-            var total = discounted.add(tax);
+        var total = discounted.add(tax);
 
-            if (paymentType != null) {
+        if (paymentType != null) {
                 if (paymentType.equalsIgnoreCase("CASH")) {
                     System.out.println("[Cash] Customer paid " + total + "EUR");
                 } else if (paymentType.equalsIgnoreCase("CARD")) {
@@ -82,4 +81,4 @@ public class OrderManagerGod {
             return out;
         }
     }
-}
+
