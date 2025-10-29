@@ -2,9 +2,6 @@ package com.cafepos.payment;
 
 import com.cafepos.domain.Order;
 
-/**
- * Pay the order using a card number. All digits are masked except the last four.
- */
 public final class CardPayment implements PaymentStrategy {
     private final String cardNumber;
 
