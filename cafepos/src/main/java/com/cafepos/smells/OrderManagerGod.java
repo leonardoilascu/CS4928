@@ -18,8 +18,8 @@ public class OrderManagerGod {
 
         Money unitPrice;
         try {
-            var priced = product instanceof com.cafepos.catalog.Priced
-                    p ? p.price() : product.basePrice();
+            var priced = product instanceof com.cafepos.catalog.Priced p && p != null
+                    ? p.price() : product.basePrice();
             unitPrice = priced;
         } catch (Exception e) {
             unitPrice = product.basePrice();

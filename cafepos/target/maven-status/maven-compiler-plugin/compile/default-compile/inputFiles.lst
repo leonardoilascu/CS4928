@@ -11,6 +11,7 @@ C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\d
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\demo\Week3Demo.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\demo\Week4Demo.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\demo\Week5Demo.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\demo\Week6Demo.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\domain\LineItem.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\domain\Order.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\domain\OrderIds.java
@@ -26,4 +27,13 @@ C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\p
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\payment\CashPayment.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\payment\PaymentStrategy.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\payment\WalletPayment.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\CheckoutService.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\DiscountPolicy.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\FixedCouponDiscount.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\FixedRateTaxPolicy.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\LoyaltyPercentDiscount.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\NoDiscount.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\PricingService.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\ReceiptPrinter.java
+C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\pricing\TaxPolicy.java
 C:\Users\PC\Documents\GitHub\week5lab\CS4928\cafepos\src\main\java\com\cafepos\smells\OrderManagerGod.java

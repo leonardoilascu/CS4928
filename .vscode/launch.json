@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Week6Demo",
+            "request": "launch",
+            "mainClass": "com.cafepos.demo.Week6Demo",
+            "projectName": "cafeposWeek2"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Launch",
+            "program": "${workspaceFolder}/main",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
