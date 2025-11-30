@@ -39,7 +39,6 @@ public class OrderService {
         return order.totalWithTax(percent); 
     }
     public void pay(PaymentStrategy strategy, int taxPercent) {
-        // Usually you'd call order.pay(strategy), here we display a payment using the computed total
         var total = order.totalWithTax(taxPercent);
         strategy.pay(order);
         System.out.println("[Service] Payment processed for total " + total);

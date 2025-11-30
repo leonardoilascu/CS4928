@@ -13,7 +13,6 @@ public final class Menu extends MenuComponent {
     @Override public void remove(MenuComponent c) { children.remove(c); }
     @Override public MenuComponent getChild(int i) { return children.get(i); }
     @Override public String name() { return name; }
-    // Expose child iterator for CompositeIterator
     public Iterator<MenuComponent> childrenIterator() { return children.iterator(); }
     @Override public Iterator<MenuComponent> iterator() {
         return new CompositeIterator(childrenIterator());

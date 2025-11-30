@@ -7,7 +7,7 @@ import java.util.Objects;
 public final class Money implements Comparable<Money> {
     private final BigDecimal amount;
 
-    // Factory methods
+
     public static Money of(double value) {
         return new Money(BigDecimal.valueOf(value));
     }
@@ -16,7 +16,7 @@ public final class Money implements Comparable<Money> {
         return new Money(BigDecimal.ZERO);
     }
 
-    // Private constructor with invariant check
+
     private Money(BigDecimal a) {
         if (a == null) throw new IllegalArgumentException("amount required");
         if (a.compareTo(BigDecimal.ZERO) < 0) {
@@ -25,7 +25,7 @@ public final class Money implements Comparable<Money> {
         this.amount = a.setScale(2, RoundingMode.HALF_UP);
     }
 
-    // Arithmetic
+
     public Money add(Money other) {
         return new Money(this.amount.add(other.amount));
     }
@@ -46,13 +46,13 @@ public final class Money implements Comparable<Money> {
     }
 
 
-    // Comparable
+
     @Override
     public int compareTo(Money o) {
         return this.amount.compareTo(o.amount);
     }
 
-    // Equals & hashCode
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,7 +76,7 @@ public final class Money implements Comparable<Money> {
     }
 
 
-    // toString for debugging
+
     @Override
     public String toString() {
         return amount.toString();

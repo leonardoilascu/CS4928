@@ -14,7 +14,6 @@ public final class LegacyPrinterAdapter implements Printer {
     public void print(String receiptText) {
         // convert String to bytes
         byte[] escpos = receiptText.getBytes(StandardCharsets.UTF_8);
-        // call legacy method
         adaptee.legacyPrint(escpos);
     }
 }

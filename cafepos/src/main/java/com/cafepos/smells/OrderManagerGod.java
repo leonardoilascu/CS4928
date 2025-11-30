@@ -12,7 +12,6 @@ public class OrderManagerGod {
 
     public static String process(String recipe, int qty, String paymentType, String discountCode, boolean printReceipt) {
         // God Class Method
-        // Primitive Obsession: using String for recipe, paymentType, discountCode
         ProductFactory factory = new ProductFactory();
         Product product = factory.create(recipe);
 
@@ -44,11 +43,11 @@ public class OrderManagerGod {
         }
 
         Money discounted = Money.of(subtotal.asBigDecimal().subtract(discount.asBigDecimal()));
-        // Duplicate Logic: casting types over and over again
+        // casting types over and over again
         if (discounted.asBigDecimal().signum() < 0) {
             discounted = Money.zero();
         }
-        // Shotgun Surgery: Calculating tax inline
+        //  Calculating tax inline
         var tax = Money.of(discounted.asBigDecimal().multiply(java.math.BigDecimal.valueOf(TAX_PERCENT)).divide(java.math.BigDecimal.valueOf(100)));
 
         var total = discounted.add(tax);
